@@ -1,5 +1,43 @@
 name: RECOVERY
 
+   on:
+     push:
+       branches:
+         - main
+     pull_request:
+       branches:
+         - main
+
+   jobs:
+     build:
+       runs-on: ubuntu-latest
+
+       steps:
+       - name: Checkout repository
+         uses: actions/checkout@v2
+
+       - name: Set up QEMU
+         uses: docker/setup-qemu-action@v2
+         with:
+           platforms: aarch64
+
+       - name: Set up Docker Buildx
+         uses: docker/setup-buildx-action@v2
+
+       - name: Install dependencies
+         run: |
+           sudo apt-get update
+           sudo apt-get install -y qemu-user-static
+
+       - name: Build for aarch64
+         run: |
+           docker buildx create --use
+           docker buildx build --platform linux/arm64 -t patch-recovery:latest .
+
+       - name: Run on aarch64
+         run: |
+           docker run --rm -it patch-recovery:latest
+
 on:
   workflow_dispatch:
     inputs:
