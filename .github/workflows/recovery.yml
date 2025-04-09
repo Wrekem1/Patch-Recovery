@@ -1,12 +1,4 @@
-name: RECOVERY
 
-   
-     push:
-       branches:
-         - main
-     pull_request:
-       branches:
-         - main
 
    jobs:
      build:
