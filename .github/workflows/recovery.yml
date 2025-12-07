@@ -6,7 +6,7 @@ on:
       RECOVERY_URL:
         description: 'RECOVERY URL'
         required: true
-        default: 'https://mega.nz/fm/qspwCYDB'
+        default: 'https://mega.nz/file/mwIxRYaL#8UWg5BI-Df8r5UpKIAEEEyXB5m5keI5_Z7mfThJOccA'
 
 env:
   RECOVERY_URL: https://oshi.at/Rpjg
