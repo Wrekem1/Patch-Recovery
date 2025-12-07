@@ -6,7 +6,7 @@ on:
       RECOVERY_URL:
         description: 'RECOVERY URL'
         required: true
-        default: 'https://transfer.sh/Recommended Cli.site'
+        default: 'https://transfer.sh/(Recommended site)'
 
 env:
   RECOVERY_URL: https://oshi.at/Rpjg
